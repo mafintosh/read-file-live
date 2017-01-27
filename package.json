@@ -1,0 +1,23 @@
+{
+  "name": "read-file-live",
+  "version": "0.0.0",
+  "description": "Read a file and re-read it when it changes",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "standard": "^8.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/read-file-live.git"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/read-file-live/issues"
+  },
+  "homepage": "https://github.com/mafintosh/read-file-live"
+}
