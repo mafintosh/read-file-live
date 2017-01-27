@@ -7,6 +7,7 @@ function readFile (name, notify) {
   var checks = 0
   var intervals = [100, 500, 1000]
   var stopped = false
+  var once = false
 
   check()
   return uncheck
@@ -18,15 +19,32 @@ function readFile (name, notify) {
 
     fs.stat(name, function (err) {
       if (stopped) return
-      if (err) return setTimeout(check, intervals[checks++] || 1000)
+
+      if (err) {
+        update(null)
+        setTimeout(check, intervals[checks++] || 1000)
+        return
+      }
 
       checks = 0
       watcher = fs.watch(name, check)
 
       fs.readFile(name, function (_, data) {
-        notify(data || null)
+        update(data)
       })
     })
+  }
+
+  function update (data) {
+    if (data) {
+      once = true
+      notify(data)
+      return
+    }
+    if (once) {
+      once = false
+      notify(null)
+    }
   }
 
   function uncheck () {
