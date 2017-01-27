@@ -1,6 +1,6 @@
 {
   "name": "read-file-live",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Read a file and re-read it when it changes",
   "main": "index.js",
   "dependencies": {},
